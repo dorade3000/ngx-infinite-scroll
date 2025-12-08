@@ -109,7 +109,6 @@ export class InfiniteScrollDirective
 }
 
 function hasObservers<T>(emitter: EventEmitter<T>): boolean {
-  // Note: The `observed` property is available only in RxJS@7.2.0, which means it's
-  // not available for users running the lower version.
-  return emitter.observed ?? emitter.observers.length > 0;
+  // The `observed` property is available in RxJS@7.2.0+
+  return emitter.observed;
 }
